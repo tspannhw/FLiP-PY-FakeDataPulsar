@@ -242,3 +242,16 @@ producer = client.create_producer(topic='persistent://public/default/fakeuser' ,
 
 * https://faker.readthedocs.io/en/stable/providers.html
 * https://faker.readthedocs.io/en/master/
+* https://github.com/knaufk/flink-faker
+* https://github.com/DiUS/java-faker
+* https://github.com/faker-ruby/faker
+* https://github.com/faker-js/faker
+* https://github.com/kiritbasu/Fake-Apache-Log-Generator
+* https://github.com/emirozer/fake2db
+* https://www.datainmotion.dev/2019/04/integration-testing-for-apache-nifi.html
+* https://github.com/FINRAOS/DataGenerator#quick-start
+* https://fakerjs.dev/
+* https://github.com/sius/fakerdb
+* https://github.com/everwatchsolutions/json-data-generator
+* https://github.com/johnbrandborg/faker-events
+* https://github.com/Data-drone/fakestream
