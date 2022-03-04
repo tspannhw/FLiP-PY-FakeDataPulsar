@@ -25,3 +25,4 @@ print(fake.ipv4_private())
 ## References
 
 * https://faker.readthedocs.io/en/stable/providers.html
+* https://faker.readthedocs.io/en/master/
