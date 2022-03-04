@@ -177,6 +177,13 @@ Splits: 18 total, 18 done (100.00%)
 0:01 [4.4K rows, 4.37MB] [5.58K rows/s, 5.54MB/s]
 ````
 
+## How to Use
+
+![Python](https://github.com/tspannhw/FLiP-PY-FakeDataPulsar/blob/main/fakeusertable.jpg?raw=true)
+![Python](https://github.com/tspannhw/FLiP-PY-FakeDataPulsar/blob/main/fakeusertabledescr.jpg?raw=true)
+![Python](https://github.com/tspannhw/FLiP-PY-FakeDataPulsar/blob/main/prestoquery.jpg?raw=true)
+![Python](https://github.com/tspannhw/FLiP-PY-FakeDataPulsar/blob/main/pulsarsqlresults.jpg?raw=true)
+
 ## TODO
 
 * create parameters for URL, Login, Topic, producer name, producer id, fields, options, schema - maybe class?, # of rows or continuous
