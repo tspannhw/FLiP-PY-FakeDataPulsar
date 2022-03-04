@@ -10,6 +10,14 @@ pip3 install Faker
 
 * https://github.com/joke2k/faker
 
+## Build a Topic
+
+````
+bin/pulsar-admin topics delete persistent://public/default/fakeuser
+
+bin/pulsar-admin topics create persistent://public/default/fakeuser
+````
+
 ## Schema
 
 ````
@@ -34,7 +42,7 @@ class PulsarUser (Record):
     latitude = Float()
     longitude = Float()
     job = String()
-    email_me = String()
+    email_me = Boolean()
     secret_code = String()
     password = String()
     first_name = String()
@@ -51,9 +59,49 @@ class PulsarUser (Record):
 {'_required_default': False, '_default': None, '_required': False, 'created_dt': '1974-01-07', 'user_id': '20220304192446_045a2724-6f9e-4968-ae19-a5a1a095e57b', 'ipv4_public': '207.116.194.88', 'email': 'hsanchez@chandler.com', 'user_name': 'qpearson', 'cluster_name': 'memory-story-see', 'city': 'Elizabethview', 'country': 'Mauritius', 'postcode': '01045', 'street_address': '352 Rodriguez Rue', 'license_plate': '6-79707I', 'ean13': '3151191404713', 'response': 'Quality-focused logistical conglomeration', 'comment': 'implement value-added relationships', 'company': 'Harper LLC', 'latitude': 88.5392145, 'longitude': -7.466258, 'job': 'Development worker, community', 'email_me': None, 'secret_code': '28b5519f4bb38cd9fc52aa9bb7bca1aa', 'password': '+5u&%TTkHt', 'first_name': 'Johnny', 'last_name': 'Hoffman', 'phone_number': '9669534677', 'user_agent': 'Mozilla/5.0 (compatible; MSIE 8.0; Windows NT 6.2; Trident/3.1)'}
 ````
 
+## Testing
+
+````
+bin/pulsar-admin schemas get persistent://public/default/fakeuser
+
+bin/pulsar-client consume "persistent://public/default/fakeuser" -s fakeuser-consumer -n 0
+
+----- got message -----
+key:[20220304193720_c66b0c26-3bb5-4183-8c32-ee3fe78cce7c], properties:[], content:{
+ "created_dt": "2004-11-27",
+ "user_id": "20220304193720_c66b0c26-3bb5-4183-8c32-ee3fe78cce7c",
+ "ipv4_public": "194.151.189.253",
+ "email": "marywood@davis.info",
+ "user_name": "santiagogregory",
+ "cluster_name": "history-threat",
+ "city": "Birdmouth",
+ "country": "Norway",
+ "postcode": "91306",
+ "street_address": "6971 Dana Wall Apt. 594",
+ "license_plate": "83M\u2022390",
+ "ean13": "8230532486542",
+ "response": "Configurable modular parallelism",
+ "comment": "reinvent one-to-one eyeballs",
+ "company": "Cantrell, Ochoa and Willis",
+ "latitude": 14.1899475,
+ "longitude": -162.604588,
+ "job": "Ambulance person",
+ "email_me": false,
+ "secret_code": "f048d2d55b7be1689f9c9846e31ba9de",
+ "password": "+8WWoLcV4t",
+ "first_name": "Jennifer",
+ "last_name": "Diaz",
+ "phone_number": "001-797-009-5002x04500",
+ "user_agent": "Mozilla/5.0 (compatible; MSIE 7.0; Windows NT 5.01; Trident/3.0)"
+}
+
+````
+
+
 ## TODO
 
-create parameters for URL, Login, Topic, producer name, producer id, fields, options, schema - maybe class?, # of rows or continuous
+* create parameters for URL, Login, Topic, producer name, producer id, fields, options, schema - maybe class?, # of rows or continuous
+
 
 ## References
 
