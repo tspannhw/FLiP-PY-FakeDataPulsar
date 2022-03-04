@@ -177,12 +177,42 @@ Splits: 18 total, 18 done (100.00%)
 0:01 [4.4K rows, 4.37MB] [5.58K rows/s, 5.54MB/s]
 ````
 
-## How to Use
-
 ![Python](https://github.com/tspannhw/FLiP-PY-FakeDataPulsar/blob/main/fakeusertable.jpg?raw=true)
 ![Python](https://github.com/tspannhw/FLiP-PY-FakeDataPulsar/blob/main/fakeusertabledescr.jpg?raw=true)
 ![Python](https://github.com/tspannhw/FLiP-PY-FakeDataPulsar/blob/main/prestoquery.jpg?raw=true)
 ![Python](https://github.com/tspannhw/FLiP-PY-FakeDataPulsar/blob/main/pulsarsqlresults.jpg?raw=true)
+
+
+## How to Use
+
+* Step 1:  Import Faker, Add Your Provider
+
+````
+from faker import Faker
+from faker.providers import internet, address, automotive, barcode, company, date_time, geo, job, misc, person
+from faker.providers import phone_number, user_agent
+
+fake = Faker()
+fake.add_provider(internet)
+
+````
+
+* Step 2:  Create or Import Your Schema
+
+````
+# Pulsar Message Schema
+class PulsarUser (Record):
+    created_dt = String()
+    user_id = String()
+    ipv4_public = String()
+````
+
+* Step 3:  Connect to Your Cluster and Build a Producer
+
+````
+client = pulsar.Client('pulsar://pulsar1:6650')
+producer = client.create_producer(topic='persistent://public/default/fakeuser' ,schema=JsonSchema(PulsarUser),properties={"producer-name": "fake-py-sensor","producer-id": "fake-user" })
+
 
 ## TODO
 
