@@ -214,7 +214,7 @@ client = pulsar.Client('pulsar://pulsar1:6650')
 producer = client.create_producer(topic='persistent://public/default/fakeuser' ,schema=JsonSchema(PulsarUser),properties={"producer-name": "fake-py-sensor","producer-id": "fake-user" })
 ````
 
-# Step 4: Create records (can do this in a finite or infinite loop)
+* Step 4: Create records (can do this in a finite or infinite loop)
 
 ````
    userRecord = PulsarUser()
@@ -224,13 +224,13 @@ producer = client.create_producer(topic='persistent://public/default/fakeuser' ,
    userRecord.ipv4_public = fake.ipv4_public()
 ````
 
-# Step 5: Send record
+* Step 5: Send record
 
 ````
    producer.send(userRecord,partition_key=str(uuid_key))
 ````
 
-# Step 6:  Rinse and Repeat
+* Step 6:  Rinse and Repeat
 
 
 ## TODO
